@@ -1,0 +1,124 @@
+<div class="main-content">
+  <div class="example-container">
+
+
+      <div class="example-sidenav-content">
+        <div class="chat-sct">
+           <div class="chat-body"  #scroll>
+              <!-- <h4 style="text-align: center; font-size: 30px; margin-top: 80px;">EXLBOT</h4> -->
+
+              <div class="ques-sct">
+                 <div *ngFor="let me of chatMe">
+                    <p class="quesListsct" *ngIf="me.prompt">
+                       <span class="material-icons user-icon"> person </span
+                          ><span class="me-lable">{{ me.prompt }}</span>
+                    </p>
+                    <div class="chat-bubble me" *ngIf="me.answer">
+                       <img src="assets/chatbot.png" />
+                       <p>{{ me.answer }}</p>
+                    </div>
+                 </div>
+                 <div class="chat-bubble me loader-bubble" *ngIf="showLoader">
+                    <svg
+                       xmlns="http://www.w3.org/2000/svg"
+                       xmlns:xlink="http://www.w3.org/1999/xlink"
+                       style="
+                       margin: auto;
+                       display: block;
+                       shape-rendering: auto;
+                       width: 63px;
+                       height: 40px;
+                       color: #fb4e0b;
+                       "
+                       viewBox="0 0 100 100"
+                       preserveAspectRatio="xMidYMid"
+                       >
+                       <circle cx="0" cy="44.1678" r="15" fill="#ffffff">
+                          <animate
+                             attributeName="cy"
+                             calcMode="spline"
+                             keySplines="0 0.5 0.5 1;0.5 0 1 0.5;0.5 0.5 0.5 0.5"
+                             repeatCount="indefinite"
+                             values="57.5;42.5;57.5;57.5"
+                             keyTimes="0;0.3;0.6;1"
+                             dur="1s"
+                             begin="-0.6s"
+                             ></animate>
+                       </circle>
+                       <circle cx="45" cy="43.0965" r="15" fill="#ffffff">
+                          <animate
+                             attributeName="cy"
+                             calcMode="spline"
+                             keySplines="0 0.5 0.5 1;0.5 0 1 0.5;0.5 0.5 0.5 0.5"
+                             repeatCount="indefinite"
+                             values="57.5;42.5;57.5;57.5"
+                             keyTimes="0;0.3;0.6;1"
+                             dur="1s"
+                             begin="-0.39999999999999997s"
+                             ></animate>
+                       </circle>
+                       <circle cx="90" cy="52.0442" r="15" fill="#ffffff">
+                          <animate
+                             attributeName="cy"
+                             calcMode="spline"
+                             keySplines="0 0.5 0.5 1;0.5 0 1 0.5;0.5 0.5 0.5 0.5"
+                             repeatCount="indefinite"
+                             values="57.5;42.5;57.5;57.5"
+                             keyTimes="0;0.3;0.6;1"
+                             dur="1s"
+                             begin="-0.19999999999999998s"
+                             ></animate>
+                       </circle>
+                    </svg>
+                 </div>
+              </div>
+           </div>
+           <div class="footer-sct">
+              <div class="chat-input">
+                 <form [formGroup]="firstFormGroup" (ngSubmit)="sendMessage()">
+                 <textarea  cdkTextareaAutosize
+                 #autosize="cdkTextareaAutosize"
+                    type="text"
+                    formControlName="question"
+                    placeholder="Ask query here...."
+                    ></textarea>
+                 <div class="input-action-icon" >
+                    <a
+                       >
+                       <button type="submit">
+                          <svg
+                             xmlns="http://www.w3.org/2000/svg"
+                             width="24"
+                             height="24"
+                             viewBox="0 0 24 24"
+                             fill="none"
+                             stroke="currentColor"
+                             stroke-width="2"
+                             stroke-linecap="round"
+                             stroke-linejoin="round"
+                             class="feather feather-send"
+                             >
+                             <line x1="22" y1="2" x2="11" y2="13"></line>
+                             <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                          </svg>
+                          <div class="send">Send</div>
+                       </button>
+                    </a
+                       >
+                 </div>
+                 </form>
+                 <div class="delete-btn-2" style="font-size: 14px">
+                    <!-- <button mat-fab class="material-icons" (click)="deleteChat()">
+                       delete
+                       </button> -->
+                    <a>
+                       <mat-icon class="material-icons">delete</mat-icon>
+                       <span class="delete-icon" >Clear chat</span>
+                    </a>
+                 </div>
+              </div>
+           </div>
+        </div>
+     </div>
+    </div>
+</div>

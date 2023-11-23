@@ -1,0 +1,71 @@
+<!-- <app-side-menu></app-side-menu> -->
+<mat-card>
+  <div class="upload-page">
+        <div class="container"><mat-progress-bar  mode="determinate"  value= {{progress}} class="upload-bar" *ngIf="this.progress > 1 && this.progress < 99 "></mat-progress-bar>
+          <p class="uploadMsg" *ngIf="!isUploaded">{{message}}</p>
+          <div class="radio">
+          <mat-radio-group  aria-label="Select an option"  class="upload-radio">
+            <mat-radio-button [checked]="true" value="1" (change)="radioChange('files')">Files</mat-radio-button>
+            <mat-radio-button   value="2" (change)="radioChange('folder')">Folder</mat-radio-button>
+          </mat-radio-group></div>
+          <div class="message" *ngIf="isUploaded">
+            <div class="success-icon">
+            <mat-icon>check_circle_outline</mat-icon>
+            <h4>Success</h4>
+        <p>{{sucessMessage}}</p></div>
+          <button class="close" (click)="closePop()" mat-dialog-close>Okay</button>
+      </div>
+          <form class="form" [formGroup]="firstFormGroup" (ngSubmit)="onUpload()">
+            <!-- <img src="../../assets/file-upload.png" class="upload-icon" />
+            <h3>Drag & Drop your Files</h3>
+                <h3>------ OR ------</h3> -->
+              <div *ngIf="isFiles" class="file-upload-wrapper" data-text="Select your file(s)">
+                <input class="file-upload-field"  id="files"  multiple  type="file"
+                formControlName="fileUpload"
+                (change)="onChange($event)"
+              >
+              </div>
+              <div  *ngIf="!isFiles"class="folder-upload-wrapper" data-text="Select your folder">
+                <input class="folder-upload-field"  id="files"  multiple  type="file"
+                formControlName="fileUpload"
+                #fileInput
+                (change)="uploadFiles(fileInput.files)"
+                webkitdirectory
+              >
+              </div>
+            <span
+            class="text-danger"
+            *ngIf="
+              (firstFormGroup.controls['fileUpload'].errors &&
+                firstFormGroup.controls['fileUpload'].touched) ||
+              submitted ||
+              firstFormGroup.controls['fileUpload'].dirty
+            "
+          >
+            <span
+              *ngIf="firstFormGroup.controls['fileUpload'].errors?.['required'] && submitted"
+              >
+              <ng-container *ngIf="isFiles">File is required.</ng-container>
+              <ng-container *ngIf="!isFiles">Folder is required.</ng-container>
+
+              </span
+            ></span>
+            <div *ngFor="let file of localFileList" >
+              <div class="file-name">{{file.folder_file}}</div>
+            </div>
+
+            <div class="action-btn">
+            <button
+              class="mat-btn-verify1">
+            Proceed
+            </button>
+            <button
+              class="mat-btn-verify1" (click)="closePop()">
+            Cancel
+            </button>
+          </div>
+
+            </form>
+        </div>
+      </div>
+</mat-card>

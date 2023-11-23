@@ -1,0 +1,265 @@
+
+<mat-grid-list lass="grid-list-1" cols="1" rowHeight="80px" dir="ltr"  >
+  <mat-grid-tile  [style.background]="color1">
+    <!-- <div class="home-head-1">
+      Qualitative Search
+    </div> -->
+    <div class="home-head-2">
+      <mat-tab-group  (selectedTabChange)="onChangeMedical($event)">
+        <mat-tab >
+
+          <ng-template mat-tab-label >
+            <mat-icon>filter_center_focus</mat-icon>
+            &nbsp;Prior Authorization
+          </ng-template>
+        </mat-tab>
+        <mat-tab>
+          <ng-template mat-tab-label>
+            <mat-icon>exit_to_app</mat-icon>
+            &nbsp;Quality Measures
+          </ng-template>
+        </mat-tab>
+        <mat-tab >
+
+          <ng-template mat-tab-label>
+            <mat-icon>chrome_reader_mode</mat-icon>
+            &nbsp;Clinical Trials
+          </ng-template>
+        </mat-tab>
+
+
+      </mat-tab-group>
+    </div>
+
+    <div class="upload-doc">
+      <button class="upload-doc-btn"  (click)="uploadDialog()">
+        <div class="upload-icon">
+          <span class="material-symbols-outlined">
+            upload
+            </span>
+
+        </div>
+        Upload Document
+
+      </button>
+    </div>
+
+  </mat-grid-tile>
+
+</mat-grid-list>
+<div *ngIf="activeMatatb === 0 && isUpload" >
+  <mat-grid-list cols="3" rowHeight="230" dir="ltr" class="mat-card-data-sct" >
+    <mat-grid-tile>
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title>Prior Authorization Request</mat-card-title>
+        </mat-card-header>
+        <div class="list-Data">
+          <p><b>Drug/Procedure Name:</b><b class="prior-disease"> Actemra </b></p>
+          <p><b>Strength:</b> 20mg/ml</p>
+
+        </div>
+      </mat-card>
+    </mat-grid-tile>
+
+    <mat-grid-tile>
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title>Patient's Summary</mat-card-title>
+        </mat-card-header>
+        <div class="list-Data">
+          <p><b>Name:</b> Cameron 381</p>
+          <p><b>Gender:</b> M</p>
+          <p><b>Address:</b> Home Primary: 937 Lakin Fort  Boston, Massachusetts 02108 </p>
+          <p><b>Patient Age:</b> 59</p>
+          <p><b>Patient Weight:</b> 91</p>
+        </div>
+      </mat-card>
+    </mat-grid-tile>
+
+    <mat-grid-tile>
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title (click)="openQuery()">Dispensing Provider's Details</mat-card-title>
+        </mat-card-header>
+        <div class="list-Data">
+          <p><b>Name:</b> Massachusets General Physicians Org, INC</p>
+          <p><b>Phone:</b> +1(XXX)XXX-XXXX</p>
+          <p><b>Address:</b> 151 EVERETT AVE
+            CHELSEA, MA 02150-1812</p>
+
+        </div>
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+
+
+  <div class="row">
+    <div class="column">
+      <div class="left-panel-header">
+
+        <span class="material-symbols-outlined"
+        (click)="incrementZoom(-0.1)">
+          zoom_in
+        </span>
+        <span class="material-symbols-outlined zoom-out"
+        (click)="incrementZoom(+0.1)">
+          zoom_out
+        </span>
+        <mat-icon class="rotatebackgnd zoom-out" (click)="rotatePdf()">rotate_90_degrees_ccw</mat-icon>
+
+      </div>
+      <div class="pdf-container">
+        <pdf-viewer [src]="pdfSrc"
+        [render-text]="true"
+        [original-size]="false"
+        [zoom]="zoom"
+        [rotation]="pdfRotation"
+        [(page)]="pageVariable"
+        [show-all]="showAll"
+        style="width: auto; height: 450px">
+        </pdf-viewer>
+      </div>
+    </div>
+    <div class="column-2" >
+        <div class="accordian-class"  *ngIf="!isChatOpen">
+          <mat-accordion  *ngFor="let option of accordianData">
+            <mat-expansion-panel hideToggle>
+
+            </mat-expansion-panel>
+            <mat-expansion-panel (opened)="panelOpenState = true"
+                                (closed)="panelOpenState = false" >
+              <mat-expansion-panel-header class="mat-expansion-header">
+                <mat-panel-title (click)="showAllTrue(panelOpenState)">
+                  {{option.title}}
+                </mat-panel-title>
+                <!-- <mat-panel-description>
+                  {{option.content}}{{panelOpenState ? 'open' : 'closed'}}
+                </mat-panel-description> -->
+              </mat-expansion-panel-header>
+              <p class="inner-connet" [innerHTML]="option.desc"(click)="changePage(option.page_num)" > {{option.desc}}</p>
+            <div class="feedback" >
+              <mat-icon  class="feedback-1" (click)="changefeedback()">thumb_up</mat-icon>
+              <mat-icon class="feedback-2"  (click)="changeback()">thumb_down</mat-icon>
+            </div>
+
+            </mat-expansion-panel>
+          </mat-accordion>
+          <input type="text" placeholder="Ask your query here..." class="send-meessage" (keydown.enter)="sendMessage()" [(ngModel)]="quesValue">
+          <!-- <button type="submit" class="send-meessage-button"  >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="12"
+              height="12"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="feather feather-send"
+              >
+              <line x1="22" y1="2" x2="11" y2="13"></line>
+              <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+            </svg>
+          </button>---->
+      </div>
+
+
+    </div>
+  </div>
+</div>
+
+<div class="data-insight" *ngIf="activeMatatb === 2">
+
+  <mat-grid-list cols="2" rowHeight="1:1" dir="ltr"  >
+    <mat-grid-tile>
+
+      <h3 class="data-insight-input-heading">  Frequently Asked Questions(click to get the response)</h3>
+      <hr class="data-insight-input">
+
+
+      <div class="accordian-class-2" >
+        <mat-accordion  *ngFor="let option of dataInsight">
+          <mat-expansion-panel hideToggle>
+          </mat-expansion-panel>
+          <mat-expansion-panel (opened)="panelOpenState = true"
+                              (closed)="panelOpenState = false">
+            <mat-expansion-panel-header class="mat-expansion-header">
+              <mat-panel-title>
+                {{option.title}}
+              </mat-panel-title>
+              <!-- <mat-panel-description>
+                {{option.content}}{{panelOpenState ? 'open' : 'closed'}}
+              </mat-panel-description> -->
+            </mat-expansion-panel-header>
+            <p>I'm visible because I am open</p>
+          </mat-expansion-panel>
+        </mat-accordion>
+      </div>
+      <div  class="data-send-meessage">
+        <input type="text" class="send-meessage" placeholder="Ask Your Question" name="fname">
+        <button type="submit" class="send-meessage-button2">
+          <svg
+             xmlns="http://www.w3.org/2000/svg"
+             width="12"
+             height="12"
+             viewBox="0 0 24 24"
+             fill="none"
+             stroke="currentColor"
+             stroke-width="2"
+             stroke-linecap="round"
+             stroke-linejoin="round"
+             class="feather feather-send"
+             >
+             <line x1="22" y1="2" x2="11" y2="13"></line>
+             <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+          </svg>
+        </button>
+
+      </div>
+
+      <table id="prompts" class="sugg-prompts">
+        <h3 class="sugg-heading">Suggested Prompts</h3>
+        <tr>
+          <td>What is the gender breakdown in different subjects</td>
+        </tr>
+        <tr>
+          <td>Can you provide on the male distribution across subjects</td>
+        </tr>
+        <tr>
+          <td>I'm curious about the proportion of males and females in different subjects. Can you help me with that</td>
+        </tr>
+      </table>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <div class="sum-new-div">
+        <div class="sum-heading">Summary</div>
+        <hr>
+        <p class="sum-content">This is some text in a div element.</p>
+      </div>
+      <div class="accordian-class-3" >
+        <mat-accordion  *ngFor="let option of dataInsight2">
+          <mat-expansion-panel hideToggle>
+          </mat-expansion-panel>
+          <mat-expansion-panel (opened)="panelOpenState = true"
+                              (closed)="panelOpenState = false">
+            <mat-expansion-panel-header class="mat-expansion-header-2">
+              <mat-panel-title>
+                {{option.title}}
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+             The distribution of male amd female in subjects is female and male 3342.
+             <div id="myPlot" style="width:100%;max-width:700px"></div>
+
+          </mat-expansion-panel>
+        </mat-accordion>
+      </div>
+    </mat-grid-tile>
+
+
+
+  </mat-grid-list>
+</div>
+<ngx-ui-loader fgsColor="#FB4E0B" pbColor="#FB4E0B"></ngx-ui-loader>
+

@@ -1,0 +1,28 @@
+
+  <div class="login-page">
+    <div class="bg-image"></div>
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <p>Please login to continue</p>
+      <div class="underline"></div>
+      <div class="login-inner-section">
+        <mat-form-field class="full-width-input">
+          <mat-label class="form-label-class">Username*</mat-label>
+          <input class="form-label-class" matInput placeholder="exlhealth@exlservice.com" formControlName="username" >
+          <mat-error *ngIf="!loginForm.get('username').valid">
+            Username is required
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field class="full-width-input">
+          <mat-label>Password</mat-label>
+          <input matInput type="password" placeholder="12345" formControlName="password"  required>
+          <mat-error *ngIf="!loginForm.get('password').valid">
+            Password is required
+          </mat-error>
+        </mat-form-field>
+        <button mat-raised-button class="mat-btn-login" type="submit" >Login</button>
+      </div>
+    </form>
+    <div class="loader-container" *ngIf="loader">
+      <!-- <mat-spinner class="login-spinner"></mat-spinner> -->
+    </div>
+  </div>

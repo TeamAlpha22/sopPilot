@@ -1,0 +1,336 @@
+
+.home-head-1{
+  position: absolute;
+  font-size: 20px;
+  font-weight: 590;
+  margin-top: -43px;
+  font-family: cursive;
+}
+
+.home-head-2{
+  position: absolute;
+  left: 25px;
+  font-size: 15px;
+  font-weight: 500;
+  margin-top: 31px;
+}
+.mdc-tab-indicator {
+  height: 86% !important;
+}
+.upload-doc{
+  position: absolute;
+  right: 21px;
+  font-size: 15px;
+  font-weight: 500;
+  margin-top: 30px;
+}
+.upload-doc-btn{
+  background-color: #FB4E0B;
+  font-weight: 600;
+  padding-left: 30px;
+  padding-right: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  color: white;
+  border-radius: 5px;
+  border: none;
+  font-size: 12px;
+}
+.upload-icon{
+  margin-top: -4px;
+  position: absolute;
+  margin-left: -22px;
+}
+.material-symbols-outlined {
+
+  font-size: 19px !important;
+}
+.medical-pdf{
+  position: absolute;
+  left: 40px;
+  background-color: #FB4E0B;
+  font-weight: 600;
+  padding-left: 30px;
+  padding-right: 26px;
+  padding-top: 7px;
+  padding-bottom: 7px;
+  color: white;
+  border-radius: 5px;
+  border: none;
+  font-size: 12px;
+  margin-top: 20px;
+  cursor: pointer;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Create two equal columns that floats next to each other */
+.column {
+  margin-top: 60px;
+  float: left;
+  width: 47%;
+  padding: 10px;
+  height: 400px; /* Should be removed. Only for demonstration */
+
+}
+.column-2 {
+  margin-top: 60px;
+  float: left;
+  width: 51%;
+  padding: 10px;
+  height: 400px; /* Should be removed. Only for demonstration */
+
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.accordian-class{
+  width: 95%;
+  margin-left: 3%;
+  max-height: 544px;
+  /* overflow: auto; */
+  overflow-y: auto;
+  overflow-x: hidden !important;
+
+}
+
+.pdf-container{
+  width: auto;
+  height: 400px;
+  margin-left: 20px;
+
+}
+.left-panel-header {
+  background-color: #EFEFEF;
+  color: #000000;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  cursor: pointer;
+  margin-left: 30px;
+
+}
+.zoom-out{
+  margin-left: 5px;
+
+}
+
+
+.mat-expansion-panel-header:not([aria-disabled=true]) {
+  border: 0.00625em solid #FB4E0B;
+  margin-top: 1px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+.mat-expansion-panel-header-title, .mat-expansion-panel-header-description {
+
+  font-size: 13px !important;
+  font-weight: 599 !important;
+
+}
+/* .mat-expansion-panel-header[_ngcontent-ng-c3136379993]:not([aria-disabled=true]) {
+
+
+  height: 31px !important;
+} */
+.mat-expansion-header{
+  height: 31px !important;
+
+}.mat-expansion-header-2{
+  height: 45px !important;
+
+}
+.send-meessage{
+  margin-top: 204px;
+  margin-left: 7px;
+  width: 99%;
+  border-radius: 5px;
+  line-height: 27px;
+  margin-bottom: 40px;
+  font-size: 13px;
+  padding-left: -30px;
+  font-weight: 550;
+  padding-left: 5px !important;
+}
+
+.data-insight{
+  padding: 10px;
+  height: 200px;
+
+}
+.data-insight-input{
+  width:95%;
+  margin-top: -590px;
+  position: absolute;
+}
+.data-insight-input-heading{
+  padding-left: 11px;
+  width: 95%;
+  margin-bottom: 94.43%;
+  font-size: 12px;
+  font-weight: 550;
+  background-color: #1d1d1d2b;
+
+}
+.accordian-class-2{
+  width: 95%;
+  margin-left: 0px;
+  position: absolute;
+  margin-top: -500px;
+}
+.accordian-class-3{
+  width: 95%;
+  margin-left: -31px;
+  position: absolute;
+  margin-top: -224px
+}
+.data-send-meessage{
+  margin-top: 0px;
+  position: absolute;
+  width: 105%;
+  border-radius: 5px;
+  line-height: 35px;
+  font-size: 15px;
+  padding-left: 32px;
+  font-weight: 500;
+}
+
+
+.send-meessage-button{
+  position: absolute;
+  cursor: pointer;
+  margin-left: 604px;
+  margin-top: -67px;
+}
+
+
+#prompts {
+  border-collapse: collapse;
+  width: 95%;
+  margin-top: 170px;
+  margin-left: 0px;
+  font-size: 12px;
+}
+
+#prompts td, #prompts th {
+  border: 1px solid #ddd;
+  padding: 8px;
+ border: 1px solid #FB4E0B;
+
+}
+#prompts th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #04AA6D;
+  color: white;
+}
+.sugg-prompts{
+  position: absolute;
+}
+
+.send-meessage-button2{
+  position: absolute;
+  cursor: pointer;
+  margin-left: -37px;
+  margin-top: 8px;
+}
+.dummy{
+  margin-top: 10%;
+}
+.sugg-heading{
+  font-size: 14px;
+  font-weight: 550;
+  margin-bottom: 0px;
+  margin-top: -28px;
+}
+.sum-new-div {
+   border: 1px solid #bebebe;
+  text-align: left;
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+  width: 95%;
+  height: 25%;
+  margin-bottom: 73.5%;
+  margin-left: -5%;
+}
+.sum-heading{
+  padding: 5px;
+  font-size: 12px;
+  font-weight: 500;
+  margin-bottom: -9px;
+  background-color: #afafaf;
+}
+.sum-content{
+  padding: 5px;
+}
+.query-section{
+  margin-top: 174px;
+  position: sticky;
+}
+
+.mat-card-data-sct mat-card{
+  width: 90%;
+  height: 220px;
+    box-shadow: 0px 2px 2px #000;
+}
+.mat-card-data-sct .mat-grid-tile {
+  margin-top: 29px;
+}
+.list-Data{
+  padding: 16px;
+}
+.mat-card-data-sct mat-card-header.mat-mdc-card-header {
+  background-color: #FB4E0B;
+  color: #fff;
+}
+.mat-card-data-sct mat-card-title.mat-mdc-card-title {
+  font-size: 14px;
+}
+mat-expansion-panel-header {
+  margin-bottom: 6px;
+}
+
+.mat-mdc-card-header {
+  padding-top: 1px !important;
+  display: flex;
+
+}
+
+.inner-connet {
+  font-size: 13px !important;
+  font-weight: 580;
+  font-family: system-ui
+}
+.prior-disease{
+  font-weight: 600;
+  font-size: 17px;
+  font-family: cursive;
+  color: #FB4E0B;
+}
+.feedback{
+  text-align: left;
+  margin-left: 2px;
+}
+.feedback-2{
+  margin-left: 5px;
+  color: red;
+}
+.feedback-1{
+  padding-bottom: 30px;
+  color: green;
+
+}
+.active2{
+  color: red;
+}
+.active1{
+  color: green;
+}
